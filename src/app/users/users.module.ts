@@ -29,7 +29,7 @@ const userRoutes: Routes = [{ path: '', component: UserComponent }];
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forChild(userRoutes),
-    StoreModule.forFeature("customers", userReducer),
+    StoreModule.forFeature("users", userReducer),
   ]
 })
 export class UsersModule { }

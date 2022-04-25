@@ -16,7 +16,7 @@ import { User } from "../users.model";
 export class UserListComponent implements OnInit {
 
   users$: Observable<User[]>;
-  error$: Observable<String>;
+  error$: Observable<string>;
 
   constructor(private store: Store<fromUser.AppState>) { }
 
@@ -32,8 +32,8 @@ export class UserListComponent implements OnInit {
     }
   }
 
-  editUser(customer: User) {
-    this.store.dispatch(new userActions.LoadUser(customer.id));
+  editUser(user: User) {
+    this.store.dispatch(new userActions.LoadUser(user.id));
   }
 
 }

@@ -8,7 +8,7 @@ import { User } from "../users.model";
 import * as fromRoot from "../../state/app-state";
 
 export interface UserState extends EntityState<User> {
-    selectedUserId: number;
+    selectedUserId: number | null;
     loading: boolean;
     loaded: boolean;
     error: string;
@@ -25,7 +25,7 @@ export const userAdapter: EntityAdapter<User> = createEntityAdapter<
 export const defaultUser: UserState = {
     ids: [],
     entities: {},
-    selectedUserId: 0,
+    selectedUserId: null,
     loading: false,
     loaded: false,
     error: ""
@@ -135,5 +135,5 @@ export const getCurrentUserId = createSelector(
 export const getCurrentUser = createSelector(
     getUserFeatureState,
     getCurrentUserId,
-    state => state.entities[state.selectedUserId]
+    state => state.entities[state.selectedUserId as number]
 );
