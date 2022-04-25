@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "fullName": "John Doe",
+      "gender": "Male",
+      "id": 1
+    },
+    {
+      "fullName": "Jane Doe",
+      "gender": "Female",
+      "id": 2
+    }
+  ]
+}
