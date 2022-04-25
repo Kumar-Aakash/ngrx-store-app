@@ -28,12 +28,12 @@ export class UserListComponent implements OnInit {
 
   deleteUser(user: User) {
     if (confirm("Are You Sure You want to Delete the User?")) {
-      this.store.dispatch(new userActions.DeleteUser(user.id));
+      this.store.dispatch(new userActions.DeleteUser(user.id as number));
     }
   }
 
   editUser(user: User) {
-    this.store.dispatch(new userActions.LoadUser(user.id));
+    this.store.dispatch(new userActions.LoadUser(user.id as number));
   }
 
 }

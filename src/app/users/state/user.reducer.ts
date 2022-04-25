@@ -58,7 +58,7 @@ export function userReducer(
         case userActions.UserActionTypes.LOAD_USER_SUCCESS: {
             return userAdapter.addOne(action.payload, {
                 ...state,
-                selectedUserId: action.payload.id
+                selectedUserId: action.payload.id as number
             });
         }
         case userActions.UserActionTypes.LOAD_USER_FAIL: {

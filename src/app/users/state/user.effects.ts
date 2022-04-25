@@ -79,7 +79,7 @@ export class UserEffect {
         map(
           (updateUser: User) =>
             new userActions.UpdateUserSuccess({
-              id: updateUser.id,
+              id: updateUser.id as number,
               changes: updateUser
             })
         ),
