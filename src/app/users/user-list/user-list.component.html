@@ -12,14 +12,9 @@
       <td colspan="5" class="alert alert-danger" *ngIf="error$ | async as error">{{error}}</td>
     </tr>
     <tr>
-    <tr *ngFor="let user of (users$ |async)">
+    <tr *ngFor="let user of (users$ |async)" class="tr-row" [routerLink]="[{ outlets: { aux: ['details'] } }]" (click)="editUser(user)">
       <th scope="row">{{user.name}}</th>
       <td>{{user.gender}}</td>
-      <th>
-        <a (click)="editUser(user)">Edit User</a>
-        &nbsp;&nbsp;&nbsp;
-        <a (click)="deleteUser(user)">Delete User</a>
-      </th>
     </tr>
   </tbody>
 </table>

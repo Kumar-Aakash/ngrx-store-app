@@ -8,6 +8,7 @@ import * as fromUser from "../state/user.reducer";
 import { User } from "../users.model";
 
 
+
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -24,12 +25,6 @@ export class UserListComponent implements OnInit {
     this.store.dispatch(new userActions.LoadUsers());
     this.users$ = this.store.pipe(select(fromUser.getUsers));
     this.error$ = this.store.pipe(select(fromUser.getError));
-  }
-
-  deleteUser(user: User) {
-    if (confirm("Are You Sure You want to Delete the User?")) {
-      this.store.dispatch(new userActions.DeleteUser(user.id as number));
-    }
   }
 
   editUser(user: User) {

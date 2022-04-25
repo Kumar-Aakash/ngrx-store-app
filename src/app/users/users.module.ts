@@ -15,7 +15,14 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserListComponent } from './user-list/user-list.component';
 
 
-const userRoutes: Routes = [{ path: '', component: UserComponent }];
+const userRoutes: Routes = [
+  { path: '', component: UserComponent },
+  {
+    path: 'details',
+    outlet: 'aux',
+    component: UserEditComponent
+  }
+];
 
 @NgModule({
   declarations: [

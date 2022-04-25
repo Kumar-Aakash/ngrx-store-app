@@ -7,6 +7,7 @@ import * as fromUser from "../state/user.reducer";
 import * as userActions from "../state/user.actions";
 
 import { User } from '../users.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-edit',
@@ -21,7 +22,10 @@ export class UserEditComponent implements OnInit {
     id: null
   });
 
+  user: any;
+
   constructor(private fb: FormBuilder,
+              private router: Router,
               private store: Store<fromUser.AppState>) { }
 
   ngOnInit(): void {
@@ -38,6 +42,7 @@ export class UserEditComponent implements OnInit {
 
     user$.subscribe(currentUser => {
       if (currentUser) {
+        this.user = currentUser;
         this.userForm.patchValue({
           name: currentUser.name,
           gender: currentUser.gender,
@@ -49,6 +54,13 @@ export class UserEditComponent implements OnInit {
 
   }
 
+  deleteUser() {
+    if (confirm("Are You Sure You want to Delete this User?")) {
+      this.store.dispatch(new userActions.DeleteUser(this.user.id as number));
+      this.router.navigate(['']);
+    }
+  }
+
   updateUser() {
 
     const updatedUser: User = {
@@ -58,6 +70,7 @@ export class UserEditComponent implements OnInit {
     };
 
     this.store.dispatch(new userActions.UpdateUser(updatedUser));
+    this.router.navigate(['']);
 
   }
 
