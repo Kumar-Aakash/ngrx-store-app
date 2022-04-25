@@ -15,11 +15,10 @@
     <tr *ngFor="let user of (users$ |async)">
       <th scope="row">{{user.name}}</th>
       <td>{{user.gender}}</td>
-      <th scope="row">-</th>
       <th>
-        <a (click)="editUser(user)">edit</a>
-        <br>
-        <a (click)="deleteUser(user)">delete</a>
+        <a (click)="editUser(user)">Edit User</a>
+        &nbsp;&nbsp;&nbsp;
+        <a (click)="deleteUser(user)">Delete User</a>
       </th>
     </tr>
   </tbody>

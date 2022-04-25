@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from "rxjs";
+import { Observable, EMPTY } from "rxjs";
 
 import { Store, select } from "@ngrx/store";
 
@@ -15,8 +15,8 @@ import { User } from "../users.model";
 })
 export class UserListComponent implements OnInit {
 
-  users$: Observable<User[]>;
-  error$: Observable<string>;
+  users$: Observable<User[]> = EMPTY;
+  error$: Observable<string> = EMPTY;
 
   constructor(private store: Store<fromUser.AppState>) { }
 

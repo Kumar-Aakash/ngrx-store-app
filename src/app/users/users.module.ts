@@ -7,7 +7,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 
 import { userReducer } from "./state/user.reducer";
-// import { userEffect } from "./state/user.effects";
+import { UserEffect } from "./state/user.effects";
 
 import { UserComponent } from './user/user.component';
 import { UserAddComponent } from './user-add/user-add.component';
@@ -30,6 +30,7 @@ const userRoutes: Routes = [{ path: '', component: UserComponent }];
     FormsModule,
     RouterModule.forChild(userRoutes),
     StoreModule.forFeature("users", userReducer),
+    EffectsModule.forFeature([UserEffect])
   ]
 })
 export class UsersModule { }

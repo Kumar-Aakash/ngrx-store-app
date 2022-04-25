@@ -1,12 +1,12 @@
 {
   "users": [
     {
-      "fullName": "John Doe",
+      "name": "John Doe",
       "gender": "Male",
       "id": 1
     },
     {
-      "fullName": "Jane Doe",
+      "name": "Jane Doe",
       "gender": "Female",
       "id": 2
     }
